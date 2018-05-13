@@ -12,3 +12,5 @@ Model files for Face Classifier and Emotion Classifier are also provided.
 
 Reference Paper:
 Arriaga, Octavio, Matias Valdenegro-Toro, and Paul Plöger. "Real-time Convolutional Neural Networks for Emotion and Gender Classification." arXiv preprint arXiv:1710.07557 (2017).
+
+Link for Dataset: https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data
