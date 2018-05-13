@@ -9,3 +9,6 @@ Keras, Numpy, Pandas, OpenCV, Tensorflow, Statistics
 To train run Train.py and for testing run Test.py. 
 
 Model files for Face Classifier and Emotion Classifier are also provided.
+
+Reference Paper:
+Arriaga, Octavio, Matias Valdenegro-Toro, and Paul Plöger. "Real-time Convolutional Neural Networks for Emotion and Gender Classification." arXiv preprint arXiv:1710.07557 (2017).
