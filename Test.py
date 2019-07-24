@@ -4,7 +4,7 @@ import cv2
 from keras.models import load_model
 import numpy as np
 
-
+#
 def draw_text(coordinates, image_array, text, color, x_offset=0, y_offset=0,
                                                 font_scale=2, thickness=2):
     x, y = coordinates[:2]
@@ -30,12 +30,13 @@ emotion_window = []
 
 cv2.namedWindow('window_frame')
 video_capture = cv2.VideoCapture(0)
-
+#to add the emojis to output
 feelings_faces = []
 for index, emotion in enumerate(EMOTIONS):
   feelings_faces.append(cv2.imread('./emojis/' + emotion + '.png', -1))
 
 while True:
+	#capture images from video
 	bgr_image = video_capture.read()[1]
 	gray_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2GRAY)
 	rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
@@ -59,7 +60,7 @@ while True:
 		gray_face = gray_face * 2.0
 		gray_face = np.expand_dims(gray_face, 0)
 		gray_face = np.expand_dims(gray_face, -1)
-
+		#test the image and generate the output
 		emotion_prediction = emotion_classifier.predict(gray_face)
 		emotion_probability = np.max(emotion_prediction)
 		emotion_label_arg = np.argmax(emotion_prediction)
