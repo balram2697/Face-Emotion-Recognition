@@ -18,6 +18,7 @@ verbose = 1
 num_classes = 7
 base_path = './models/emotion_models/'
 
+# data generator
 data_generator = ImageDataGenerator(
                         featurewise_center=False,
                         featurewise_std_normalization=False,
@@ -28,7 +29,7 @@ data_generator = ImageDataGenerator(
                         horizontal_flip=True)
 						
 
-						
+# model parameters					
 model = resnetwork(input_shape, num_classes)
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
@@ -37,7 +38,7 @@ model.summary()
 datasets = ['fer2013']
 for dataset_name in datasets:
     print('Training dataset:', dataset_name)
-
+#trained model saving path and checkpoint
     trained_models_path = base_path + 'model_resnet'
     model_names = trained_models_path + '.{epoch:02d}-{val_acc:.2f}.hdf5'
     model_checkpoint = ModelCheckpoint(model_names, 'val_loss', verbose=1,
@@ -74,7 +75,7 @@ for dataset_name in datasets:
     val_y = emotions[num_train_samples:]
     train_data = (train_x, train_y)
     val_data = (val_x, val_y)
-	
+#training the model
     train_faces, train_emotions = train_data
     model.fit_generator(data_generator.flow(train_faces, train_emotions,
                                             batch_size),
